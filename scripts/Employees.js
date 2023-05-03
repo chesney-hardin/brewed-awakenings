@@ -31,6 +31,14 @@ document.addEventListener (
 
             // get the id of the employee clicked
             const employeeIdClicked = whatClicked.dataset.id
+
+            //find the name of the employee clicked
+            let employeeName = { name: "Name Here" }
+            for (const employee of employees) {
+                if(parseInt(employeeIdClicked) === employee.id) {
+                    employeeName = employee.name
+                }
+            }
             
             // start a counter variable at 0
             let counter = 0
@@ -39,7 +47,7 @@ document.addEventListener (
             const orders = getOrders()
             
             //find the orders that have an employeeId that match our employee clicked id
-            for (order of orders) {
+            for (const order of orders) {
                 if(order.employeeId === parseInt(employeeIdClicked)) {
 
                     //each time one matches, increase the counter by 1
@@ -47,7 +55,7 @@ document.addEventListener (
                 }
             }
         
-            window.alert(`${} sold ${} products`)            
+            window.alert(`${employeeName} sold ${counter} products`)            
             
         }
 
